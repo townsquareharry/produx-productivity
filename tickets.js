@@ -4,26 +4,33 @@ Comments = new Mongo.Collection("comments");
 Roadmap = new Mongo.Collection("roadmap");
 Documentation = new Mongo.Collection("documentation");
 
+
+/* AMAZON CONFIGURATION https://atmospherejs.com/lepozepo/s3 */
+
 S3.config = {
-    key: 'AKIAJHXBIES44SUBPGHA',
-    secret: 'G2EknCfqrKoxCrLhmFBmVlNYiymyjSsHWi3W9HVb',
-    bucket: 'threadline'
+    key: 'AKIAJHXBIES44SUBPGHA', // YOUR AMAZON S3 KEY
+    secret: 'G2EknCfqrKoxCrLhmFBmVlNYiymyjSsHWi3W9HVb', // YOUR AMAZON S3 SECRET
+    bucket: 'threadline' //YOUR AMAZON S3 BUCKET
 };
 
 
 if (Meteor.isClient) {
+
 $(document).ready(function(){
 if(Meteor.user() === null){
 $('a#login-sign-in-link').click()
 }
 });
+
 Router.route('/add-feature', function () {
   this.render('add-feature');
 });
+
 Router.route('/add-feature/:parent', function () {
   this.render('add-feature');
   FeatureProject = this.params.parent;
 });
+
 Router.route('/add-roadmap/:parent', function () {
   this.render('add-roadmap');
   RoadmapParent = this.params.parent;
@@ -37,10 +44,10 @@ Router.route('/features', function () {
   this.render('features');
 });
 
-
 Router.route('/products', function () {
   this.render('products');
 });
+
 Router.route('/add-product', function () {
   this.render('add-product');
 });
@@ -48,10 +55,12 @@ Router.route('/add-product', function () {
 Router.route('/documentation', function () {
   this.render('documentation');
 });
+
 Router.route('/documentation/:_id', function () {
   this.render('documentation_detail');
   DocumentationID = this.params._id;
 });
+
 Router.route('/add-documentation/:product', function () {
   this.render('add-documentation');
     ProductIdentifier = this.params.product;
@@ -61,6 +70,7 @@ Router.route('/features/:_id', function () {
   this.render('featuredetail');
   FeatureID = this.params._id;
 });
+
 Router.route('/dash/:email', function () {
   this.render('dashboard');
   UserEmail = this.params.email;
