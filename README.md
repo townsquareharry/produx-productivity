@@ -36,3 +36,9 @@ meteor add accounts-google
 <p> Step 8: <b><a href="https://github.com/townsquareharry/produx-productivity/archive/master.zip">Download These Files</a> and open up zip folder.</p>
 <p><b>Step 9: Drag all of these files into your <b>produx</b> folder</p>
 <p>Step 10: Go to <a href="http://localhost:3000">http://localhost:3000</a>!</p>
+<hr>
+<p><b>Note:</b> To deploy to a test meteor server go to your terminal and type the following:</p>
+<p><code>cd</code></p>
+<p><code>cd produx</code><p>
+<p><code>meteor deploy blah</code> (blah can be whatever unique name you give the application)</code></p>
+<p>Your application will then be accesible at <pre>blah.meteor.com</pre></p>
