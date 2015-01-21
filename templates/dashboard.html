@@ -1,0 +1,14 @@
+<template name="dashboard">
+<div class="col-sm-12">
+	<h2 class="page-header">My Tickets</h2>
+{{#each dash_tickets}}
+<div class="{{feature_status}} list-group-item">
+		
+			<h5 class=""><a href="/features/{{_id}}">{{feature_title}} </a><span class="pull-right {{feature_status}} badge">{{feature_status}}</span></h5>
+			
+
+			<p class="text-muted"><!-- <i>Submited By {{user_name}} on {{entry_date }}  --><span class="pull-right text-danger">Deadline: {{feature_deadline }}</span><!-- </i> --><span class="text-muted" style="text-transform:none;">Assignee: {{feature_assignee }}</span></p>
+	</div>
+{{/each}}
+</div>
+</template>

@@ -1,0 +1,119 @@
+<template name="productdetail">
+	{{#if currentUser}}
+	<div class="col-sm-12">
+		{{#each productdetail}}<p class="breadcrumbs"><a href="/products">Products</a> <i class="fa fa-fw text-muted fa-caret-right"></i> {{product_title}}</p>
+		
+			<h3 class="page-header" >{{product_title}}</h3>
+			{{/each}}
+</div>
+	<div class="col-sm-8">
+		
+		{{#each productdetail}}
+		<small class="clearfix text-muted"><i>Created By <span style="text-transform:capitalize;">{{user_name}}</span> on {{entry_date }} </i></small>
+		<hr>
+		{{/each}}
+
+		{{#each productdetail}}
+		
+			
+			<p class="prod_descrip">{{{product_description}}}</p>
+		
+		
+<h4 class="page-header">Active Requests <a href="/add-feature/{{_id}}" class="btn btn-default btn-xs pull-right">Add New</a></h4>
+{{#each productfeatures}}
+	<div class="{{feature_status}} list-group-item">
+		
+			<h5 class=""><a href="/features/{{_id}}">{{feature_title}} </a><span class="pull-right {{feature_status}} badge">{{feature_status}}</span></h5>
+			
+
+			<p class="text-muted"><!-- <i>Submited By {{user_name}} on {{entry_date }}  --><span class="pull-right text-danger">Deadline: {{feature_deadline }}</span><!-- </i> --><span class="text-muted" style="text-transform:none;">Assignee: {{feature_assignee }}</span></p>
+	</div>
+{{/each}}
+<h4 class="page-header">Completed Requests</h4>
+{{#each completed_features}}
+	<div class=" list-group-item">
+		
+			<h5 class=""><a href="/features/{{_id}}">{{feature_title}} </a><span class="pull-right {{feature_status}} badge">{{feature_status}}</span></h5>
+			
+
+			<p class="text-muted"><!-- <i>Submited By {{user_name}} on {{entry_date }}  --><span class="pull-right text-danger">Deadline: {{feature_deadline }}</span><!-- </i> --><span class="text-muted" style="text-transform:none;">Assignee: {{feature_assignee }}</span></p>
+	</div>
+{{/each}}
+<!-- <h4 class="page-header">Roadmap</h4> -->
+{{/each}}
+<!-- <h4 class="page-header">Comments</h4>
+		<div class="well">
+{{#each comments}}
+
+<div class="list-group-item">
+<p class="text-muted">mongo _id: {{_id}}</p>
+<p class="h6">added by {{{user_name}}} <span class="text-muted">{{{user_email}}}</span></p>
+<p>{{{comment_body}}}</p>
+</div>
+{{/each}}
+
+{{#each productdetail}}
+		
+<input id="parentid" value="{{_id}}" class="hidden form-control">
+<br>
+<div class="summernote"></div>
+<br>
+<a onclick="postComment()" class="btn btn-primary">Post</a>
+		{{/each}}
+</div> -->
+	</div><!--  CONTAINER END -->
+	<div class="col-sm-4">
+
+		<div class="accent">
+
+	<!-- <h4>Roadmap{{#each productdetail}}
+	<a class="btn btn-default btn-xs pull-right" href="/add-roadmap/{{_id}}">Add</a>
+	{{/each}}</h4>
+	{{#each roadmap}}
+	<div class="list-group-item">
+<h5 class="clearfix ">{{roadmap_title}} <span class="label label-primary pull-right">{{{roadmap_deadline}}}</span></h5>
+<span class="clearfix text-muted">{{{roadmap_description}}}</span>
+</div>
+	{{/each}} -->
+
+	<h5 class="">Documentation{{#each productdetail}}
+	<a class="btn btn-default btn-xs pull-right" href="/add-documentation/{{_id}}">Add</a>
+	{{/each}}</h5>
+	{{#each documentation}}
+<a class="clearfix" href="/documentation/{{_id}}">- {{title}}</a>
+	{{/each}}
+	</div>
+	</div>
+<script>
+$(document).ready(function(){
+	$('.summernote').summernote({
+  height: 200,                 // set editor height
+
+  minHeight: null,             // set minimum height of editor
+  maxHeight: null,             // set maximum height of editor
+
+  focus: true,                 // set focus to editable area after initializing summernote
+});
+});
+postComment = function(){
+TheParent = $('#parentid').val()
+TheBody = $('.note-editable').html()
+console.log('Parent ID: '+TheParent)
+console.log('PostBody: '+TheBody)
+Comments.insert({
+	user_name:Meteor.user().services.google.name,
+	user_email:Meteor.user().services.google.email,
+	parentid:TheParent,
+	comment_body:TheBody,
+	entry_date:new Date()
+})
+$('textarea').val('')
+};
+</script>
+<style>
+h5.page-header {
+padding-top: 0px!important;
+margin-top: 1px;
+}</style>
+{{/if}}
+</template>	

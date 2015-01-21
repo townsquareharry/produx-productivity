@@ -1,0 +1,10 @@
+<template name="documentation_detail">
+	<div class="col-sm-12">
+{{#each singledocumentation}}
+		<p class="breadcrumbs"><a href="/products/{{parent}}">Products</a> <i class="fa fa-fw text-muted fa-caret-right"></i> Documentation</p>
+
+<h2 class="page-header">{{title}}</h2>
+<p>{{{body}}}</p>
+{{/each}}
+</div>
+</template>

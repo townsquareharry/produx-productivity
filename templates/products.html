@@ -1,0 +1,15 @@
+<template name="products">
+
+	<div class="col-sm-12">
+		<h2 class="page-header">Products <a href="/add-product" class="btn btn-primary btn-sm pull-right">Add New</a></h2>
+		{{#each products}}
+	<div class="list-group-item">
+			<h5><a href="/products/{{_id}}">{{product_title}}</a><small class="pull-right"><i>Created By {{user_name}} on {{entry_date }} </i></small></h5>
+			
+			<p>{{{product_description}}}</p>
+	</div>
+
+		{{/each}}
+	</div>	
+
+</template>

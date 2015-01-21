@@ -1,0 +1,14 @@
+<template name="features">
+
+	<div class="container">
+		<h3 class="page-header">Features <a href="/add-feature" class="btn btn-primary btn-sm pull-right">Add New</a></h3>
+		{{#each features}}
+	<div class="list-group-item">
+			<h5><a href="/features/{{_id}}">{{feature_title}}</a></h5>
+			<p class="text-muted"><i>Submited By {{user_name}} on {{entry_date }} <span class="pull-right text-danger">Deadline: {{feature_deadline }}</span></i></p>
+	</div>
+
+		{{/each}}
+	</div>	
+
+</template>

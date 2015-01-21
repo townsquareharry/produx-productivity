@@ -1,0 +1,48 @@
+<template name="add-documentation">
+<div class="col-sm-12">
+	<h1 class="page-header">Add Documentation</h1>
+	<h6>Post Title</h6>
+<input class="form-control doc_title">
+<h6>Post Body</h6>
+<div class="summernote"></div>
+<h6>Post Tag (only use one tag)</h6>
+<input style="width:300px" class="form-control doc_tag">
+<h6>ProductID</h6>
+<input style="width:300px" class="form-control prod_id">
+<hr>
+<a onclick="postDocumentation()" class="btn btn-success">Publish</a>
+
+<script>
+$(document).ready(function(){
+	$('.prod_id').val(ProductIdentifier)
+  $('.summernote').summernote({
+  height: 200,                 // set editor height
+
+  minHeight: null,             // set minimum height of editor
+  maxHeight: null,             // set maximum height of editor
+
+  focus: true,                 // set focus to editable area after initializing summernote
+});
+});
+
+postDocumentation = function(){
+	DocTitle = $('.doc_title').val()
+	DocBody = $('.note-editable').html()
+	DocParent = $('.prod_id').val()
+	DocTag = $('.doc_tag').val()
+	Documentation.insert({
+		title:DocTitle,
+		body:DocBody,
+		parent:DocParent,
+		tag:DocTag,
+		userid:Meteor.user().services.google.id,
+		userpic:Meteor.user().services.google.picture,
+		useremail:Meteor.user().services.google.email,
+		created:new Date()
+	})
+	window.location.href='/products/'+DocParent
+
+};
+</script>
+</div>
+</template>

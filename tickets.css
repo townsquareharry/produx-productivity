@@ -1,0 +1,74 @@
+/* CSS declarations go here */
+
+textarea.form-control {
+background: lightyellow;
+}
+a#login-name-link,a#login-sign-in-link {
+color: mediumturquoise;
+}h5 {
+font-weight: bold;
+}p.text-muted {
+text-transform: capitalize;
+}div#login-email-label-and-input, .or, div#login-password-label-and-input, #login-buttons-password, a#forgot-password-link, a#signup-link {
+display: none;
+}img.pull-right {
+width: 43px;
+margin-top: -11px;
+}img.pull-right {
+width: 43px;
+margin-top: 4px;
+}body {
+margin-top: 79px;
+}body {
+margin-top: 78px!important;
+}span.In-Progress {
+color: teal;
+}.jumbotron {
+padding: 48px 0;
+padding-left: 26px!important;
+}nav.navbar.navbar-inverse.navbar-fixed-top a {
+color: white;
+}
+nav.navbar.navbar-inverse.navbar-fixed-top {
+background: rgb(7, 123, 123);
+color: white!important;
+}img.pull-right {
+width: 43px;
+margin-top: -11px;
+}nav.navbar.navbar-inverse.navbar-fixed-top {
+background: rgb(50, 57, 63);
+color: white!important;
+}img.labticketslogo {
+width: 51px;
+margin-left: -14px;
+}.badge {
+display: inline-block;
+min-width: 10px;
+padding: 3px 7px;
+font-size: 12px;
+font-weight: 700;
+line-height: 1;
+color: #fff;
+text-align: center;
+white-space: nowrap;
+vertical-align: baseline;
+background-color: #74829B!important;
+border-radius: 10px;
+}span.pull-right.In-Progress.badge {
+background: teal!important;
+color: white;
+}span.pull-right.New.badge {
+background: rgb(181, 69, 11)!important;
+}.Complete.list-group-item {
+opacity: .6;
+}.Review.Ready.list-group-item {
+background: rgba(255, 255, 0, 0.18);
+}span.pull-right.Review.Ready.badge {
+background: rgb(9, 126, 24)!important;
+}.Changes.Required.list-group-item {
+background: rgba(255, 0, 0, 0.2);
+}a.login-close-text {
+color: black!important;
+}.Complete.list-group-item {
+display: none;
+}

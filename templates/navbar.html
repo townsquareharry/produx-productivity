@@ -1,0 +1,54 @@
+
+<template name="navbar">
+ <!-- Static navbar -->
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="" href="/"><img class="labticketslogo" src="http://s3.amazonaws.com/LeanPress/labtickets.png"></a>
+            <a class="navbar-brand" href="/"> produx</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">{{>loginButtons}}</a></li>
+            <li><a href="/products">Products</a></li>
+             
+              <!-- <li><a href="/features">Features</a></li> -->
+          
+              <li class="hidden dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Products <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                	   <li><a href="/add-product">Add New</a></li>
+                	              <li class="divider"></li>
+                	{{#each products}}
+                	 <li><a target="_blank" href="/products/{{_id}}/">{{product_title}}</a></li>
+                	{{/each}}
+                 <!--  <li class="divider"></li>
+                  <li class="dropdown-header">Nav header</li>
+               
+                  <li><a href="#">One more separated link</a></li> -->
+                </ul>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                  <li><a href="/dash/{{currentUser.services.google.email}}"><span class="hideme {{currentUser.services.google.name}}"><span class="badge">{{reviewreadycount}} </span> Review Ready</span><span class="badge">{{ticket_count}}</span> Assigned To Me</a></li>
+              <!-- <li class="active"><a href="/dash">Dashboard <span class="sr-only">(current)</span></a></li> -->
+              <li class="userpic"><a href="/dash/{{currentUser.services.google.email}}"><img class="pull-right" src="{{currentUser.services.google.picture}}" width="30px"></a></li>
+             <!--  <li ><a style="text-transform:capitalize" href="/dash/{{currentUser.services.google.email}}">{{currentUser.services.google.name}}</a></li> -->
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+<style>
+.hideme{display:none;}
+span.hideme.Harry.Ward {
+display: inline;
+margin-right:10px;
+}
+</style>
+</template>

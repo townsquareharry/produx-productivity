@@ -1,0 +1,104 @@
+<template name="add-product">
+<div class="container">
+<p class="breadcrumbs"><a href="/features">Products</a> > Add New</p>
+<hr>
+<form class="form-horizontal">
+<fieldset>
+
+<!-- Multiple Checkboxes -->
+<!-- <div class="form-group">
+  <label class="col-md-2 control-label" for="feature_site">Site:</label>
+  <div class="col-md-2">
+ <select id="which_lab" class="form-control">
+ <option value=""></option>
+ <option value="TownsquareLab">TownsquareLab</option>
+ <option value="LabCampaigns">LabCampaigns</option>
+ </select>
+
+  </div>
+</div> -->
+
+<!-- Text input-->
+<!-- <div class="form-group">
+  <label class="col-md-2 control-label" for="user_name">Your Name:</label>  
+  <div class="col-md-5">
+  <input id="user_name" name="user_name" type="text" placeholder="Harry Ward" class="form-control input-md" required="">
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-2 control-label" for="user_email">Your Email:</label>  
+  <div class="col-md-5">
+  <input id="user_email" name="user_email" type="text" placeholder="harry@townsquaredigital.com" class="form-control input-md" required="">
+  </div>
+</div> -->
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-2 control-label" for="product_title">Product Title:</label>  
+  <div class="col-md-5">
+  <input id="product_title" name="product_title" type="text" placeholder="Super Cool New Thing" class="form-control input-md" required="">
+  <!-- <span class="help-block">Give your feature a title</span>   -->
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-2 control-label" for="product_description">Description:</label>
+  <div class="col-md-8">                     
+    <div id="commentbody" class="summernote"></div>
+    <hr>
+    <input class="product_tag" placeholder="product tag">
+    <a href="#" onclick="getFeatures()" class="btn btn-success">Publish</a>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <!-- <label class="col-md-2 control-label" for="feature_deadline">Desired Delivery Date:</label>   -->
+  <div class="col-md-5">
+ <!--  <input id="feature_deadline" name="feature_deadline" type="date" placeholder="1/1/2015" class="form-control input-md" required=""> -->
+  <!-- <span class="help-block">The date you'd like to receive this feature</span>   -->
+
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+</div>
+
+<script>
+$(document).ready(function(){
+  $('.summernote').summernote({
+  height: 200,                 // set editor height
+
+  minHeight: null,             // set minimum height of editor
+  maxHeight: null,             // set maximum height of editor
+
+  focus: true,                 // set focus to editable area after initializing summernote
+});
+});
+getFeatures = function(){
+
+TheSite = $('#which_lab').val()
+UserName = $('#user_name').val()
+UserEmail = $('#user_email').val()
+ProductTag = $('.product_tag').val()
+ProductTitle = $('#product_title').val()
+ProductDescription = $('.note-editable').html()
+ProductDeadline = $('#feature_deadline').val();
+Products.insert({
+	feature_site:TheSite,
+	user_name:Meteor.user().services.google.name,
+	user_email:Meteor.user().services.google.email,
+	product_title:ProductTitle,
+	product_description:ProductDescription,
+  product_tag:ProductTag,
+	entry_date:new Date()
+
+})
+window.location.href="products/"
+};
+</script>
+</template>

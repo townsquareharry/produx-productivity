@@ -1,0 +1,133 @@
+<template name="featuredetail">
+	<div class="col-sm-12">
+	{{#each featuredetail}}
+		<p class="breadcrumbs"><a href="/products">Products</a> <i class="fa fa-fw text-muted fa-caret-right"></i> <a href="/products/{{feature_project}}">Features</a> <i class="fa fa-fw text-muted fa-caret-right"></i> 
+			{{feature_title}}</p>
+			<h3 class="page-header" >{{feature_title}}</h3>
+		{{/each}}
+	</div>
+	<div class="col-sm-8">
+
+	
+		{{#each featuredetail}}
+		
+		
+			
+			<p class="text-muted"><small><i>Submitted By {{user_name}} on {{entry_date }} </i></small></p>
+			
+			<p class="list-group-item featuredescrip">{{{feature_description}}}</p>
+			<a href="#"  style="margin-top:10px;display:block" class="saveupdate" onclick="$('.featuredescrip').summernote({height: 100, minHeight: null, maxHeight: null, focus: true, });$('.saveupdate').toggleClass('hidden')">Edit</a><a style="margin-top:10px;" class="btn btn-success  saveupdate hidden" onclick="updateDescrip()">Save</a>
+		
+		{{/each}}
+
+<h4 class="page-header">Comments</h4>
+		<div class="well">
+{{#each comments}}
+
+<div class="list-group-item">
+<p class="text-muted">mongo _id: {{_id}}</p>
+<p class="h6">added by {{{user_name}}} <span class="text-muted">{{{user_email}}}</span></p>
+<p>{{{comment_body}}}</p>
+</div>
+{{/each}}
+
+{{#each featuredetail}}
+		
+<input id="parentid" value="{{_id}}" class="hidden form-control">
+<br>
+<a onclick="addComment()" class="btn addcomment btn-primary">Add Comment</a>
+<div id="commentbody" class="summernote"></div>
+
+<br>
+<a onclick="postComment()" class="btn postcomment hidden btn-primary">Post</a>
+		{{/each}}
+</div>
+
+</div>
+<div style="margin-top:" class="col-sm-4">
+	{{#each featuredetail}}
+	<div class="well">
+	<h5>Ticket Admin</h5>
+	<span class="clearfix text-danger"><small>Deadline: {{feature_deadline }}</small></span>
+
+	<span class="clearfix"><small>Status: <span class="{{feature_status}}"><a href="#" onclick="$('.status_switch').toggleClass('hidden in')">{{feature_status}}</a></span>  </small></span>
+
+		<select style="margin-bottom:10px" class="form-control fade hidden status_switch">
+		<option>New</option>
+		<option>In-Progress</option>
+		<option>Review Ready</option>
+		<option>Changes Required</option>
+		<option>Complete</option>
+	</select>
+	<span class="clearfix"> <small>Assignee: <a href="#" onclick="$('.assignee_switch').toggleClass('in')">{{feature_assignee}}</a> <!-- <a href="#" onclick="" class="pull-right swapassignee">change</a> -->	</small></span> 
+	<br>
+		<select class="form-control fade assignee_switch">
+			<option>-- select new assignee -- </option>
+		<option>harry@townsquaredigital.com</option>
+		<option>masonhensley@gmail.com</option>
+		<option>mike@townsquaredigital.com</option>
+		<option>steve@townsquaredigital.com</option>
+		<option>sun@townsquaredigital.com</option>
+		<option>anibal@townsquaredigital.com</option>
+	</select>
+	</div>
+	{{/each}}
+	
+
+	</div><!--  CONTAINER END -->
+<script>
+$(document).ready(function(){
+	updateDescrip = function(){
+	FeatureDescript = $('.note-editable:first').html()
+	Features.update({_id:FeatureID}, { $set : {feature_description:FeatureDescript}}, {});	
+console.log(FeatureDescript)
+$('.note-editor').before(FeatureDescript)
+$('.note-editor').remove()
+$('.saveupdate').toggle()
+};
+addComment = function(){
+	$('.addcomment').fadeOut()
+$('.summernote').summernote({
+  height: 100,                 // set editor height
+
+  minHeight: null,             // set minimum height of editor
+  maxHeight: null,             // set maximum height of editor
+
+  focus: true,                 // set focus to editable area after initializing summernote
+});
+ $('.postcomment').removeClass('hidden')
+};	
+});
+$('.assignee_switch').on('change',function(){
+	TheAssignee = $(this).val()
+Features.update({_id:FeatureID}, { $set : {feature_assignee:TheAssignee}}, {});	
+window.location.reload()
+})
+$('.status_switch').on('change',function(){
+	TheStatus = $(this).val()
+Features.update({_id:FeatureID}, { $set : {feature_status:TheStatus}}, {});	
+window.location.reload()
+})
+
+postComment = function(){
+TheParent = $('#parentid').val()
+TheBody = $('.note-editable').html()
+console.log('Parent ID: '+TheParent)
+console.log('PostBody: '+TheBody)
+Comments.insert({
+	user_name:Meteor.user().services.google.name,
+	user_email:Meteor.user().services.google.email,
+	parentid:TheParent,
+	comment_body:TheBody,
+	entry_date:new Date()
+})
+$('.note-editable').html('')
+};
+</script>
+<style>
+p.text-muted i {
+position: relative;
+top: -16px;
+text-transform: capitalize;
+}</style>
+</template>	
