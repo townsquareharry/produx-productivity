@@ -1,6 +1,7 @@
 <h1>Produx Meteorjs App Starter Kit</h1>
 <i>Project Management/Productivity Application</i>
 <p>Developed by <a href="http://harryward.biz">Harry Ward</a></p>
+<p><a href="http://produx.meteor.com/products/">Live Demo</a> (requires google sign-in)</p>
 <hr>
 <h4>Getting Started</h4>
 <p>Step 1: Open Your Terminal</p>
