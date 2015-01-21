@@ -1,3 +1,6 @@
+<h1>Produx Meteorjs Productivity App Starter Kit</h1>
+<p>Developed by <a href="http://harryward.biz">Harry Ward</a></p>
+<hr>
 Required Packages (open up terminal and paste the following)
 <pre>
 meteor add meteor-platform
