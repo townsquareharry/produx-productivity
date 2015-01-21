@@ -33,3 +33,6 @@ meteor add jquery
 meteor add alanning:roles
 meteor add accounts-google
 </pre>
+<p> Step 8: <b><a href="https://github.com/townsquareharry/produx-productivity/archive/master.zip">Download These Files</a> and open up zip folder.</p>
+<p><b>Step 9: Drag all of these files into your <b>produx</b> folder</p>
+<p>Step 10: Go to <a href="http://localhost:3000">http://localhost:3000</a>!</p>
