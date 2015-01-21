@@ -8,9 +8,9 @@ Documentation = new Mongo.Collection("documentation");
 /* AMAZON CONFIGURATION https://atmospherejs.com/lepozepo/s3 */
 
 S3.config = {
-    key: 'AKIAJHXBIES44SUBPGHA', // YOUR AMAZON S3 KEY
-    secret: 'G2EknCfqrKoxCrLhmFBmVlNYiymyjSsHWi3W9HVb', // YOUR AMAZON S3 SECRET
-    bucket: 'threadline' //YOUR AMAZON S3 BUCKET
+    key: 'XXXXXXXXXXXXXX', // YOUR AMAZON S3 KEY
+    secret: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXX', // YOUR AMAZON S3 SECRET
+    bucket: 'XXXXXXXXXXXXXX' //YOUR AMAZON S3 BUCKET
 };
 
 
