@@ -7,7 +7,7 @@
 <p>Step 2: type <code>meteor create produx</code> - hit return</p>
 <p>Step 3: type <code>cd produx</code> - hit return</p>
 <p>Step 4: type <code>meteor --port 3000</code> - hit return</p>
-<p>Step 5: in your browser go to http://localhost:3000</p>
+<p>Step 5: in your browser go to <a href="http://localhost:3000">http://localhost:3000</a></p>
 <p>Step 6: in terminal hold COMMAND and press the T key (this opens new terminal tab)</p>
 <p>Step 7: Add Packages (copy and paste the items below into your terminal and hit return)</p>
 <pre>
