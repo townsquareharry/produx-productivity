@@ -3,13 +3,13 @@
 <p>Developed by <a href="http://harryward.biz">Harry Ward</a></p>
 <hr>
 <h4>Getting Started</h4>
-Step 1: Open Your Terminal
-Step 2: type <code>meteor create produx</code> - hit return
-Step 3: type <code>cd produx</code> - hit return
-Step 4: type <code>meteor --port 3000</code> - hit return
-Step 5: in your browser go to http://localhost:3000
-Step 6: in terminal hold COMMAND and press the T key (this opens new terminal tab)
-Step 7: Add Packages (copy and paste the items below into your terminal and hit return)
+<p>Step 1: Open Your Terminal</p>
+<p>Step 2: type <code>meteor create produx</code> - hit return</p>
+<p>Step 3: type <code>cd produx</code> - hit return</p>
+<p>Step 4: type <code>meteor --port 3000</code> - hit return</p>
+<p>Step 5: in your browser go to http://localhost:3000</p>
+<p>Step 6: in terminal hold COMMAND and press the T key (this opens new terminal tab)</p>
+<p>Step 7: Add Packages (copy and paste the items below into your terminal and hit return)</p>
 <pre>
 meteor add meteor-platform
 meteor add autopublish
