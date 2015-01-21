@@ -1,4 +1,5 @@
-<h1>Produx Meteorjs Productivity App Starter Kit</h1>
+<h1>Produx Meteorjs App Starter Kit</h1>
+<i>Project Management/Productivity Application</i>
 <p>Developed by <a href="http://harryward.biz">Harry Ward</a></p>
 <hr>
 Required Packages (open up terminal and paste the following)
